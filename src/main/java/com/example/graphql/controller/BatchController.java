@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 
 @Slf4j
 @Controller
-public class BtachController {
+public class BatchController {
 
     @Autowired
     private CustomerService customerService;
