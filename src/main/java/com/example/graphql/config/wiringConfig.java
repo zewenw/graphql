@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.graphql.execution.RuntimeWiringConfigurer;
 
 //@Configuration
-public class graphConfig {
+public class wiringConfig {
 
 //    @Bean
     RuntimeWiringConfigurer runtimeWiringConfigurer(CustomerService customerService){
