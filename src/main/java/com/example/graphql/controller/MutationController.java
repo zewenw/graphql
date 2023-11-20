@@ -14,6 +14,7 @@ public class MutationController {
     @Autowired
     private CustomerService customerService;
 
+    //TODO how to implement a method which parameter is Customer
 //    @SchemaMapping(typeName = "Mutation", field = "addCustomer")
     @MutationMapping
     public Customer addCustomer(@Argument String name){

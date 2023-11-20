@@ -34,6 +34,11 @@ public class QueryController {
         return new Customer("5", name);
     }
 
+    @QueryMapping
+    public Customer customerById(@Argument String id){
+        return customerService.getCustomerById(id);
+    }
+
     /**
      * either the method name equals to the field name
      * or the value of field property within SchemaMapping equals to the field
