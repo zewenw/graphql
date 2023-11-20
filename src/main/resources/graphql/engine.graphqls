@@ -1,6 +1,9 @@
 type Query {
     customers: [Customer]
     customerById(id: ID): Customer
+    hello: String
+    helloWithName(name: String) : String
+    customerByName(name: String): Customer
 }
 
 type Customer {
