@@ -1,14 +1,13 @@
 package com.example.graphql.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Value;
+import lombok.*;
 
 import java.util.UUID;
 
 @Builder
 @AllArgsConstructor
-@Value
+@NoArgsConstructor
+@Data
 public class Customer {
 
     String id;

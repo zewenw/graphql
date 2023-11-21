@@ -4,9 +4,9 @@ spring:
       mapping: graphql
     graphiql:
       enabled: true
-  rsocket:
-    server:
-      port: 9191
+#  rsocket:
+#    server:
+#      port: 9191
 
 
 server:

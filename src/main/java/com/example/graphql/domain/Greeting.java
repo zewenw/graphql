@@ -1,12 +1,11 @@
 package com.example.graphql.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Value;
+import lombok.*;
 
-@Value
 @Builder
 @AllArgsConstructor
+@NoArgsConstructor
+@Data
 public class Greeting {
     String greeting;
 }
