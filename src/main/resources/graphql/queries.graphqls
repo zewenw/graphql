@@ -1,4 +1,5 @@
 type Query {
+    greeting: Greeting
     customers: [Customer]
     customerById(id: ID): Customer
     hello: String
@@ -15,4 +16,8 @@ type Customer {
 type Profile {
     id: ID
     customerId: ID
+}
+
+type Greeting {
+    greeting : String
 }
