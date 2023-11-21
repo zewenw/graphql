@@ -26,7 +26,7 @@ public class CustomerService {
 
 
     public Profile getProfileFor(Customer customer){
-        return new Profile("1", customer.getId());
+        return new Profile("1", customer.getId(), "profile");
     }
 
     public Collection<Customer> getCustomers(){

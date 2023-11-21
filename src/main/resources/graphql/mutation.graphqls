@@ -1,3 +1,14 @@
 type Mutation {
-    addCustomer(name: String):Customer
+    addCustomer(customer: CustomerInput):Customer
+}
+
+input CustomerInput {
+    name: String!
+    email: String!
+    profile: ProfileInput
+
+}
+
+input ProfileInput {
+    name: String
 }

@@ -16,6 +16,7 @@ type Customer {
 type Profile {
     id: ID
     customerId: ID
+    name: String
 }
 
 type Greeting {

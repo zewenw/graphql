@@ -12,4 +12,5 @@ public class Profile {
 
     String id;
     String customerId;
+    String name;
 }
