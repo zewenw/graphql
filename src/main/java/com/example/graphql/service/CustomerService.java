@@ -4,9 +4,11 @@ import com.example.graphql.domain.Customer;
 import com.example.graphql.domain.Profile;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import reactor.core.publisher.Mono;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -14,11 +16,12 @@ import java.util.stream.Collectors;
 public class CustomerService {
 
     private Map<String, Customer> db = new ConcurrentHashMap<>();
+    private final AtomicInteger id = new AtomicInteger();
 
     {
         log.info("customer service initial data");
-        db.put("1", new Customer("1", "A"));
-        db.put("2", new Customer("2", "B"));
+        db.put("1", new Customer(String.valueOf(id.incrementAndGet()), "A"));
+        db.put("2", new Customer(String.valueOf(id.incrementAndGet()), "B"));
     }
 
 
@@ -30,18 +33,19 @@ public class CustomerService {
         return new ArrayList<>(db.values());
     }
 
-    public Customer getCustomerById(String id) {
-        return db.values().stream()
+    public Mono<Customer> getCustomerById(String id) {
+        Customer customer = db.values().stream()
                 .filter(value -> value.getId().equals(id))
                 .findAny().orElse(null);
+        return Mono.just(customer);
     }
 
-    public Customer addCustomer(String name) {
+    public Mono<Customer> addCustomer(String name) {
         Customer customer = Customer.builder()
-                .id(UUID.randomUUID().toString())
+                .id(String.valueOf(id.incrementAndGet()))
                 .name(name)
                 .build();
         db.put(customer.getId(), customer);
-        return customer;
+        return Mono.just(customer);
     }
 }

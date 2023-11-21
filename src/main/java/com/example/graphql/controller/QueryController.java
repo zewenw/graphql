@@ -8,8 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.graphql.data.method.annotation.SchemaMapping;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
+import reactor.core.publisher.Mono;
 
 @Slf4j
 @Controller
@@ -34,8 +37,10 @@ public class QueryController {
         return new Customer("5", name);
     }
 
+//    @PreAuthorize("hasRole('VIERER')")
+    @Secured("ROLE_VIERER")
     @QueryMapping
-    public Customer customerById(@Argument String id){
+    public Mono<Customer> customerById(@Argument String id){
         return customerService.getCustomerById(id);
     }
 

@@ -7,7 +7,7 @@ import org.springframework.graphql.client.HttpGraphQlClient;
 import org.springframework.graphql.client.RSocketGraphQlClient;
 import org.springframework.stereotype.Component;
 
-@Configuration
+//@Configuration
 public class GraphQLClientConfig {
 
     @Bean

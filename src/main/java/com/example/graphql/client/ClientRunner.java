@@ -9,7 +9,7 @@ import org.springframework.graphql.client.HttpGraphQlClient;
 import org.springframework.graphql.client.RSocketGraphQlClient;
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class ClientRunner implements ApplicationRunner {
 
     @Autowired

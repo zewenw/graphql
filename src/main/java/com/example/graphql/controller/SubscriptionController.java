@@ -16,10 +16,10 @@ import java.util.concurrent.Flow;
 import java.util.function.Supplier;
 import java.util.stream.Stream;
 
-@Controller
+//@Controller
 public class SubscriptionController {
 
-    @SubscriptionMapping
+//    @SubscriptionMapping
     Flux<Greeting> greetings() {
         return Flux.fromStream(Stream.generate(
                 () -> new Greeting("hello world : wzw" + Instant.now())
